@@ -1,0 +1,50 @@
+#include <iostream>
+#include <unordered_map>
+using namespace std;
+unordered_map<int,char> x_o;
+
+void board(){
+        cout << x_o[1]<<"|"<<x_o[2]<<"|"<<x_o[3] << endl;
+        cout << x_o[4]<<"|"<<x_o[5]<<"|"<<x_o[6] << endl;
+        cout << x_o[7]<<"|"<<x_o[8]<<"|"<<x_o[9] << endl;
+
+            }
+
+
+void insert(int where, char what){
+        if (x_o[where] == ' '){
+            x_o[where] = what;
+        }
+        else{
+            cout<<"The place already Taken by a player"<<endl;
+        }
+     
+    } 
+int main(){
+    for(int i = 1;i<=9;i++){
+        x_o[i]=' ';
+    }
+    int val;
+    int turn =1;
+    char var;
+    while(true){
+        
+        board();
+        cout<<"Enter the Place Value : "<<endl;
+        cin>>val;
+        if (val =< 0 || val >= 10 ){
+            cout<<"Enter a valid input"<<endl;
+        }
+        cout<< "The Number of turns is : "<<turn<<endl;
+         if(turn%2 == 0){
+            var = 'O';
+         }
+         else{
+            var ='X';
+         }
+         insert(val,var);
+         turn++;
+        
+        }
+
+    }
