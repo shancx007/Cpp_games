@@ -20,6 +20,54 @@ void insert(int where, char what){
         }
      
     } 
+
+void winning(){
+    char winner;
+
+    if (x_o[1]==x_o[2] && x_o[2]==x_o[3] && x_o[1]!= ' '){
+        winner = x_o[1];
+        cout<<"Game Over "<<winner<<" wins"<<endl;
+        exit(0);
+    }
+    else if(x_o[4] == x_o[5] && x_o[5] == x_o[6]&& x_o[4]!= ' '){
+
+        winner =x_o[4];
+        cout<<"Game Over "<<winner<<" wins",,endl;
+        exit(0);
+
+    }
+    else if(x_o[7] == x_o[8] && x_o[8] == x_o[9]&& x_o[7] != ' '){
+        winner =x_o[7];
+        cout<<"Game Over "<<winner<<" wins",,endl;
+        exit(0); 
+    }
+    else if(x_o[1]==x_o[5] && x_o[5] == x_o[9] && x_o[1] != ' '){
+        winner =x_o[1];
+        cout<<"Game Over "<<winner<<" wins",,endl;
+        exit(0);
+    }
+    else if(x_o[3] == x_o[5] && x_o[5] == x_o[7] && x_o[3] != ' '){
+        winner =x_o[3];
+        cout<<"Game Over "<<winner<<" wins",,endl;
+        exit(0);
+    }
+    else if(x_o[1] == x_o[4] && x_o[4] == x_o[7] && x_o[1]!= ' '){
+        winner =x_o[1];
+        cout<<"Game Over "<<winner<<" wins",,endl;
+        exit(0);
+    }
+    else if(x_o[2] == x_o[5] && x_o[5] == x_o[8] && x_o[2]!= ' '){
+        winner =x_o[2];
+        cout<<"Game Over "<<winner<<" wins",,endl;
+        exit(0);
+    }
+    else if(x_o[3] == x_o[6] && x_o[6] == x_o[9]&& x_o[3]!= ' '){
+        winner =x_o[3];
+        cout<<"Game Over "<<winner<<" wins",,endl;
+        exit(0);
+    }
+   
+}
 int main(){
     for(int i = 1;i<=9;i++){
         x_o[i]=' ';
@@ -32,18 +80,28 @@ int main(){
         board();
         cout<<"Enter the Place Value : "<<endl;
         cin>>val;
-        if (val =< 0 || val >= 10 ){
+        if (val <= 0 || val >= 10 ){
             cout<<"Enter a valid input"<<endl;
+            continue;
         }
         cout<< "The Number of turns is : "<<turn<<endl;
-         if(turn%2 == 0){
+        
+        if(turn%2 == 0){
             var = 'O';
          }
-         else{
+        else{
             var ='X';
          }
-         insert(val,var);
-         turn++;
+       
+
+        insert(val,var);
+        winning();
+        if (turn == 9){
+            cout<<"It's a Draw"<<endl;
+            exit(0);
+        }
+
+        turn++;
         
         }
 
