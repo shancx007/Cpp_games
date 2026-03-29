@@ -1,5 +1,6 @@
 #include <iostream>
 #include <unordered_map>
+#include <cstdlib>
 using namespace std;
 unordered_map<int,char> x_o;
 
@@ -11,12 +12,14 @@ void board(){
             }
 
 
-void insert(int where, char what){
+bool insert(int where, char what){
         if (x_o[where] == ' '){
             x_o[where] = what;
+            return true;
         }
         else{
             cout<<"The place already Taken by a player"<<endl;
+            return false;
         }
      
     } 
@@ -32,38 +35,38 @@ void winning(){
     else if(x_o[4] == x_o[5] && x_o[5] == x_o[6]&& x_o[4]!= ' '){
 
         winner =x_o[4];
-        cout<<"Game Over "<<winner<<" wins",,endl;
+        cout<<"Game Over " <<winner<<" wins"<<endl;
         exit(0);
 
     }
     else if(x_o[7] == x_o[8] && x_o[8] == x_o[9]&& x_o[7] != ' '){
         winner =x_o[7];
-        cout<<"Game Over "<<winner<<" wins",,endl;
+        cout<<"Game Over "<<winner<<" wins"<<endl;
         exit(0); 
     }
     else if(x_o[1]==x_o[5] && x_o[5] == x_o[9] && x_o[1] != ' '){
         winner =x_o[1];
-        cout<<"Game Over "<<winner<<" wins",,endl;
+        cout<<"Game Over "<<winner<<" wins"<<endl;
         exit(0);
     }
     else if(x_o[3] == x_o[5] && x_o[5] == x_o[7] && x_o[3] != ' '){
         winner =x_o[3];
-        cout<<"Game Over "<<winner<<" wins",,endl;
+        cout<<"Game Over "<<winner<<" wins"<<endl;
         exit(0);
     }
     else if(x_o[1] == x_o[4] && x_o[4] == x_o[7] && x_o[1]!= ' '){
         winner =x_o[1];
-        cout<<"Game Over "<<winner<<" wins",,endl;
+        cout<<"Game Over "<<winner<<" wins"<<endl;
         exit(0);
     }
     else if(x_o[2] == x_o[5] && x_o[5] == x_o[8] && x_o[2]!= ' '){
         winner =x_o[2];
-        cout<<"Game Over "<<winner<<" wins",,endl;
+        cout<<"Game Over "<<winner<<" wins"<< endl;
         exit(0);
     }
     else if(x_o[3] == x_o[6] && x_o[6] == x_o[9]&& x_o[3]!= ' '){
         winner =x_o[3];
-        cout<<"Game Over "<<winner<<" wins",,endl;
+        cout<<"Game Over "<<winner<<" wins"<<endl;
         exit(0);
     }
    
@@ -90,11 +93,13 @@ int main(){
             var = 'O';
          }
         else{
-            var ='X';
+            var = 'X';
          }
        
 
-        insert(val,var);
+        if(!insert(val,var)){
+            continue;
+        }
         winning();
         if (turn == 9){
             cout<<"It's a Draw"<<endl;
