@@ -71,6 +71,18 @@ void winning(){
     }
    
 }
+
+
+int place_gen(){
+    for(int i; i <=9;i++){
+        o_x[i]==
+        }
+        
+    }
+
+     
+
+    
 int main(){
     for(int i = 1;i<=9;i++){
         x_o[i]=' ';
@@ -78,14 +90,19 @@ int main(){
     int val;
     int turn =1;
     char var;
+    int player_count = 0;
+    int computer_count = 0;
+    int player_input[]={};
+    int computer_input[]={};
     while(true){
         
         board();
         cout<<"Enter the Place Value : "<<endl;
         cin>>val;
-        if (val <= 0 || val >= 10 ){
-            cout<<"Enter a valid input"<<endl;
-            continue;
+        for(int player_count; player_count < 5; player_count++ ){
+            player_input[player_count]=val;
+        } 
+        
         }
         cout<< "The Number of turns is : "<<turn<<endl;
         
@@ -94,6 +111,7 @@ int main(){
          }
         else{
             var = 'X';
+            
          }
        
 
