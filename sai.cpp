@@ -73,12 +73,6 @@ void winning(){
 }
 
 
-int place_gen(){
-    for(int i; i <=9;i++){
-        o_x[i]==
-        }
-        
-    }
 
      
 
@@ -103,7 +97,7 @@ int main(){
             player_input[player_count]=val;
         } 
         
-        }
+        
         cout<< "The Number of turns is : "<<turn<<endl;
         
         if(turn%2 == 0){
@@ -120,6 +114,7 @@ int main(){
         }
         winning();
         if (turn == 9){
+            board();
             cout<<"It's a Draw"<<endl;
             exit(0);
         }
@@ -127,5 +122,6 @@ int main(){
         turn++;
         
         }
-
     }
+
+    
