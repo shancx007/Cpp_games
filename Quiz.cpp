@@ -7,11 +7,10 @@ random_device rd;
 mt19937 gen(rd());
 uniform_int_distribution<> rnd(0,9);
 struct quiz{
-   string q;
-   string ans;
+   string q[10];
+   string ans[10];
     };
-quiz q1;
-q1.q ={
+quiz q1={
     {"Which country is known as the 'Land of the Rising Sun'?","Japan"}
     {"What is the hardest natural substance on Earth?","Diamond"}
     };
