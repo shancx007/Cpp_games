@@ -1,8 +1,12 @@
 #include <iostream>
 #include <algorithm>
 #include <string>
-
+#include <random>
 using namespace std;
+random_device rd;
+mt19937 gen(rd());
+
+
 
 struct quiz{
    string q;
@@ -22,10 +26,23 @@ quiz ql[10]{
     };
 int main(){
     string Ans;
+    int score =0;
+
     shuffle(ql,ql+10,gen);
-    for(int i=0i<=9;i++){
+    for(int i=0; i<=4; i++){
         cout << ql[i].q << endl;
-        cin >>Ans;
+        getline(cin ,Ans);
+        for(char& ch : Ans) ch = tolower(ch);
+        for(char& ch : ql[i].ans) ch = tolower(ch);
+        if(Ans ==ql[i].ans){
+            cout<<"Your answer is right"<<endl;
+            score++;
+
+        }
+        else{
+            cout<<"Your Answer is wrong"<<endl;
+        }
 
     }
+    cout<<"Your Score is : "<<score<<endl;
 }

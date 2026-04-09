@@ -30,43 +30,51 @@ void winning(){
     if (x_o[1]==x_o[2] && x_o[2]==x_o[3] && x_o[1]!= ' '){
         winner = x_o[1];
         cout<<"Game Over "<<winner<<" wins"<<endl;
+        board();
         exit(0);
     }
     else if(x_o[4] == x_o[5] && x_o[5] == x_o[6]&& x_o[4]!= ' '){
 
         winner =x_o[4];
         cout<<"Game Over " <<winner<<" wins"<<endl;
+        board();
         exit(0);
 
     }
     else if(x_o[7] == x_o[8] && x_o[8] == x_o[9]&& x_o[7] != ' '){
         winner =x_o[7];
         cout<<"Game Over "<<winner<<" wins"<<endl;
+        board();
         exit(0); 
     }
     else if(x_o[1]==x_o[5] && x_o[5] == x_o[9] && x_o[1] != ' '){
         winner =x_o[1];
         cout<<"Game Over "<<winner<<" wins"<<endl;
+        board();
         exit(0);
     }
     else if(x_o[3] == x_o[5] && x_o[5] == x_o[7] && x_o[3] != ' '){
         winner =x_o[3];
         cout<<"Game Over "<<winner<<" wins"<<endl;
+        board();
         exit(0);
     }
     else if(x_o[1] == x_o[4] && x_o[4] == x_o[7] && x_o[1]!= ' '){
         winner =x_o[1];
         cout<<"Game Over "<<winner<<" wins"<<endl;
+        board();        
         exit(0);
     }
     else if(x_o[2] == x_o[5] && x_o[5] == x_o[8] && x_o[2]!= ' '){
         winner =x_o[2];
         cout<<"Game Over "<<winner<<" wins"<< endl;
+        board();
         exit(0);
     }
     else if(x_o[3] == x_o[6] && x_o[6] == x_o[9]&& x_o[3]!= ' '){
         winner =x_o[3];
         cout<<"Game Over "<<winner<<" wins"<<endl;
+        board();
         exit(0);
     }
    
