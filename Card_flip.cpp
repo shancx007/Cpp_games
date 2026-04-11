@@ -9,7 +9,7 @@ string shapes[4]= {"hearts","spade","diamond","leaf"};
 string values[13]={"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
 vector <string> cards;
 vector <string> layout;
-void setup(string temp){
+void setup(vector <string> temp){
     cout<<temp[0]<<temp[1]<<temp[2]<<temp[3]<<endl;
     cout<<temp[4]<<temp[5]<<temp[6]<<temp[7]<<endl;
     cout<<temp[8]<<temp[9]<<temp[10]<<temp[11]<<endl;
@@ -29,10 +29,10 @@ for (string s : shapes){
     for(int i; i <= 7;i++){
         board.push_back(cards[i]);
         board.push_back(cards[i]);
-        layout.push_back("[ ]")
+        layout.push_back("[ ]");
 
     }
     shuffle(board.begin(),board.end(),gen);
-   
+   setup(layout);
 
 }
