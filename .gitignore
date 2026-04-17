@@ -1,0 +1,18 @@
+# Ignore compiled executables (Windows)
+*.exe
+# If they don't have extensions in the folder, ignore them by name:
+Cards
+game
+gon
+QnA
+tic_tac_toe
+
+# Ignore dynamic libraries
+*.dll
+
+# Ignore VS Code configuration
+.vscode/
+
+# Ignore any temporary object files
+*.o
+*.obj
