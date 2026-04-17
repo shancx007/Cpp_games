@@ -1,13 +1,11 @@
 #include <raylib.h>
-
-int main(){
-    InitWindow(800, 600, "My First Window");
-    
+int main()
+{
+    InitWindow(800, 600, "Balls");
+    SetTargetFPS(60);
     while(!WindowShouldClose()){
-        BeginDrawing();
-        ClearBackground(BLACK);
-        DrawText("Hello Raylib!", 300, 280, 30, WHITE);
-        EndDrawing();
+        
     }
     CloseWindow();
+
 }
