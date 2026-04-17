@@ -36,6 +36,7 @@ void winning(){
     else if(x_o[4] == x_o[5] && x_o[5] == x_o[6]&& x_o[4]!= ' '){
 
         winner =x_o[4];
+        
         cout<<"Game Over " <<winner<<" wins"<<endl;
         board();
         exit(0);
@@ -77,6 +78,7 @@ void winning(){
         board();
         exit(0);
     }
+    board();
    
 }
 
