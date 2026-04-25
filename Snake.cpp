@@ -1,37 +1,33 @@
 #include <raylib.h>
-Color mygreen = {30, 160, 120, 255};
-
-
+int cellsize = 20;
+int cellcount = 30;
 class Head{
     public:
-    int x = 600;
-    int y = 350;
+    int x=15;
+    int y=15;
     void Draw(){
-        DrawRectangle(x,y,20,20,WHITE);
+        DrawRectangle(x*cellsize,y*cellsize,cellsize,cellsize,BLACK);
+}
+    void Direction(){
+        
     }
-   
-        
-        
-
 };
 
 int main(){
-    Head head;
-    InitWindow(1200,700,"Snakes");
-   
+    InitWindow(cellcount*cellsize,cellcount*cellsize,"snake");
     SetTargetFPS(60);
-    while(!WindowShouldClose()){
-        ClearBackground(mygreen);
+    Head head;
+    while (!WindowShouldClose())
+    {
         BeginDrawing();
+        ClearBackground(GREEN);
+        DrawLine(2*cellsize,2*cellsize,28*cellsize,2*cellsize,BLACK);
+        DrawLine(28*cellsize,2*cellsize,28*cellsize,28*cellsize,BLACK);
+        DrawLine(28*cellsize,28*cellsize,2*cellsize,28*cellsize,BLACK);
+        DrawLine(2*cellsize,28*cellsize,2*cellsize,2*cellsize,BLACK);
         head.Draw();
-        if(IsKeyPressed(KEY_UP)){
-            while(true){
-                head.x+=3;
-            }
-        }
-        
-        
         EndDrawing();
     }
     CloseWindow();
+    
 }

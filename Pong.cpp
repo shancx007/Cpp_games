@@ -7,8 +7,8 @@ class Ball{
         float Y_cord = GetScreenHeight()/2;
         float X_cord = GetScreenWidth()/2;
         float radius = 10;
-        float x_speed = 6;
-        float y_speed = 6;
+        float x_speed = 9;
+        float y_speed = 9;
         int player1 =0, player2 = 0;
       
       
@@ -41,12 +41,12 @@ class Paddle{
        DrawRectangle(x2,y2,W,H,WHITE);
     }
      void Direction(){
-        if(IsKeyDown(KEY_UP)) y2 -= 8;
-        if(IsKeyDown(KEY_DOWN)) y2 += 8;
+        if(IsKeyDown(KEY_UP)) y2 -= 10;
+        if(IsKeyDown(KEY_DOWN)) y2 += 10;
         if(y2<=5)y2=5;
         if(y2>= GetScreenHeight()-130)y2= GetScreenHeight()-130;
-        if(IsKeyDown(KEY_W)) y1 -= 8;
-        if(IsKeyDown(KEY_S)) y1 += 8;
+        if(IsKeyDown(KEY_W)) y1 -= 10;
+        if(IsKeyDown(KEY_S)) y1 += 10;
         if(y1<=5)y1=5;
         if(y1 >= GetScreenHeight()-130)y1= GetScreenHeight()-130;
      }
