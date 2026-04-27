@@ -35,6 +35,11 @@ class Head{
          if (body[0].x<2)body[0].x=27; 
             
     }
+    void reset(int &val){
+        body={Vector2{6,9},Vector2{5,9},Vector2{4,9}};
+        way={1,0};
+        val =0;
+    }
     
 
 };
@@ -58,13 +63,15 @@ class Food{
         DrawRectangle(pos.x*cellsize,pos.y*cellsize,cellsize,cellsize,BLACK);
     }
     Vector2 GenerateRandomPos(){
-       float x = GetRandomValue(2,cellcount-2);
-        float y = GetRandomValue(2,cellcount-2);
+       float x = GetRandomValue(2,cellcount-3);
+        float y = GetRandomValue(2,cellcount-3);
         return Vector2{x,y};
     }
 };
 
 int main(){
+    int score=0;
+    bool gameOver = false;
     InitWindow(cellcount*cellsize,cellcount*cellsize,"snake");
     SetTargetFPS(60);
     Head head;
@@ -81,7 +88,7 @@ int main(){
         DrawLine(28*cellsize,2*cellsize,28*cellsize,28*cellsize,BLACK);
         DrawLine(28*cellsize,28*cellsize,2*cellsize,28*cellsize,BLACK);
         DrawLine(2*cellsize,28*cellsize,2*cellsize,2*cellsize,BLACK);
-        
+       if(!gameOver){ 
         head.Draw();
         
         if(willdo(0.3)){
@@ -119,14 +126,32 @@ int main(){
             head.way={0,1};
             }
         }
+       
         food.Draw();
         if(CheckCollisionRecs({food.pos.x*cellsize,food.pos.y*cellsize,cellsize,cellsize},{head.body[0].x*cellsize,head.body[0].y*cellsize,cellsize,cellsize})){
             food.pos = food.GenerateRandomPos();
             head.addtail = true;
+            score++;
         }
-        for(int i = 0; i>)
-        if(CheckCollisionRecs({head.body[0].x*cellsize,head.body[0].y*cellsize,cellsize,cellsize},)
-       
+         DrawText(TextFormat("Score : %d",score),25*cellsize,1*cellsize,1*cellsize,WHITE);
+    
+        for(int i = 2; i<head.body.size();i++){
+if(CheckCollisionRecs({head.body[0].x*cellsize,head.body[0].y*cellsize,cellsize,cellsize},{head.body[i].x*cellsize,head.body[i].y*cellsize,cellsize,cellsize})){
+   
+    gameOver = true;
+}
+        }
+
+        }
+        if(gameOver){
+            DrawText("Game Over!!!",6*cellsize,10*cellsize,70,BLACK);
+        }
+        if(IsKeyPressed(KEY_SPACE)){
+            gameOver=false;
+            head.reset(score);
+
+        }
+    
 
         EndDrawing();
     }
