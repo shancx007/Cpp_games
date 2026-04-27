@@ -124,6 +124,8 @@ int main(){
             food.pos = food.GenerateRandomPos();
             head.addtail = true;
         }
+        for(int i = 0; i>)
+        if(CheckCollisionRecs({head.body[0].x*cellsize,head.body[0].y*cellsize,cellsize,cellsize},)
        
 
         EndDrawing();
