@@ -6,10 +6,11 @@ using namespace std;
 
 int cellsize = 20;
 int cellcount = 30;
-Vector2 right{1,0};
+
 class Head{
     public:
     deque<Vector2> body={Vector2{6,9},Vector2{5,9},Vector2{4,9}};
+    Vector2 way{1,0};
     void Draw(){
         for(int i; i < body.size();i++){
             float x = body[i].x;
@@ -18,9 +19,9 @@ class Head{
         DrawRectangleRounded(rec,0.4,6,BLACK);
         }
     }
-    void Direction(){
+    void DirectionR(){
          body.pop_back();
-         body.push_front(Vector2Add(body[0],right));   
+         body.push_front(Vector2Add(body[0],way));   
             
     }
 
@@ -69,8 +70,41 @@ int main(){
         DrawLine(28*cellsize,28*cellsize,2*cellsize,28*cellsize,BLACK);
         DrawLine(2*cellsize,28*cellsize,2*cellsize,2*cellsize,BLACK);
         head.Draw();
+        
         if(willdo(0.3)){
-            head.Direction();
+            head.DirectionR();
+        }
+        if(IsKeyPressed(KEY_UP)){
+            if(head.way.y == 1){
+            head.way={0,1};
+            }
+            else{
+        head.way={0,-1};
+            }
+        }
+        if(IsKeyPressed(KEY_RIGHT)){
+            if(head.way.x==- 1){
+               head.way={-1,0}; 
+            }
+            else{
+        head.way={1,0};
+            }
+        }
+        if(IsKeyPressed(KEY_LEFT)){
+            if(head.way.x== 1){
+                head.way={1,0};
+            }
+            else{
+            head.way={-1,0};
+            }
+        }
+        if(IsKeyPressed(KEY_DOWN)){
+            if(  head.way.y==-1){
+                head.way={0,-1};
+            }
+            else{
+            head.way={0,1};
+            }
         }
         food.Draw();
         EndDrawing();
