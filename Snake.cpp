@@ -4,11 +4,12 @@
 using namespace std;
 
 
-int cellsize = 20;
-int cellcount = 30;
+float cellsize = 20.0;
+float cellcount = 30.0;
 
 class Head{
     public:
+    
     deque<Vector2> body={Vector2{6,9},Vector2{5,9},Vector2{4,9}};
     Vector2 way{1,0};
     void Draw(){
@@ -111,6 +112,11 @@ int main(){
             }
         }
         food.Draw();
+        if(CheckCollisionRecs({food.pos.x*cellsize,food.pos.y*cellsize,cellsize,cellsize},{head.body[0].x*cellsize,head.body[0].y*cellsize,cellsize,cellsize})){
+            food.pos = food.GenerateRandomPos();
+            head.body
+        }
+
         EndDrawing();
     }
         
