@@ -12,7 +12,7 @@ class Head{
     deque<Vector2> body={Vector2{6,9},Vector2{5,9},Vector2{4,9}};
     Vector2 way{1,0};
     void Draw(){
-        for(int i; i < body.size();i++){
+        for(int i=0; i < body.size();i++){
             float x = body[i].x;
             float y = body[i].y;
         Rectangle rec = {x*cellsize,y*cellsize,cellsize,cellsize};
@@ -21,7 +21,11 @@ class Head{
     }
     void DirectionR(){
          body.pop_back();
-         body.push_front(Vector2Add(body[0],way));   
+         body.push_front(Vector2Add(body[0],way));  
+         if (body[0].y>27)body[0].y=2; 
+         if (body[0].y<2)body[0].y=27; 
+         if (body[0].x>27)body[0].x=2; 
+         if (body[0].x<2)body[0].x=27; 
             
     }
 
@@ -46,8 +50,8 @@ class Food{
         DrawRectangle(pos.x*cellsize,pos.y*cellsize,cellsize,cellsize,BLACK);
     }
     Vector2 GenerateRandomPos(){
-       float x = GetRandomValue(0,cellcount-1);
-        float y = GetRandomValue(0,cellcount-1);
+       float x = GetRandomValue(2,cellcount-2);
+        float y = GetRandomValue(2,cellcount-2);
         return Vector2{x,y};
     }
 };
