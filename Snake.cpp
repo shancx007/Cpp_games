@@ -9,6 +9,8 @@ float cellcount = 30.0;
 
 class Head{
     public:
+    bool addtail = false;
+   
     
     deque<Vector2> body={Vector2{6,9},Vector2{5,9},Vector2{4,9}};
     Vector2 way{1,0};
@@ -21,7 +23,11 @@ class Head{
         }
     }
     void DirectionR(){
+        
+        if(!addtail){
          body.pop_back();
+        }
+        addtail = false;
          body.push_front(Vector2Add(body[0],way));  
          if (body[0].y>27)body[0].y=2; 
          if (body[0].y<2)body[0].y=27; 
@@ -29,6 +35,7 @@ class Head{
          if (body[0].x<2)body[0].x=27; 
             
     }
+    
 
 };
 double perv_time = 0;
@@ -74,6 +81,7 @@ int main(){
         DrawLine(28*cellsize,2*cellsize,28*cellsize,28*cellsize,BLACK);
         DrawLine(28*cellsize,28*cellsize,2*cellsize,28*cellsize,BLACK);
         DrawLine(2*cellsize,28*cellsize,2*cellsize,2*cellsize,BLACK);
+        
         head.Draw();
         
         if(willdo(0.3)){
@@ -114,8 +122,9 @@ int main(){
         food.Draw();
         if(CheckCollisionRecs({food.pos.x*cellsize,food.pos.y*cellsize,cellsize,cellsize},{head.body[0].x*cellsize,head.body[0].y*cellsize,cellsize,cellsize})){
             food.pos = food.GenerateRandomPos();
-            head.body
+            head.addtail = true;
         }
+       
 
         EndDrawing();
     }
