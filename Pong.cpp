@@ -7,8 +7,8 @@ class Ball{
         float Y_cord = GetScreenHeight()/2;
         float X_cord = GetScreenWidth()/2;
         float radius = 10;
-        float x_speed = 9;
-        float y_speed = 9;
+        float x_speed = 7;
+        float y_speed = 7;
         int player1 =0, player2 = 0;
       
       
