@@ -1,22 +1,33 @@
 #include <raylib.h>
+#include <deque>
 float cellsize = 30;
 float cellcount = 25;
 Color violet = {5,155,200,255};
-class Square{
-    void shape(){
-        Vector2 Long{{x,y},{x,y},{x,y},{x,y}};
-        vector2 Z_1 = {{x,y},{x+1,y},{x+1,y-1},{x+1,y-2}};
-        Vector2 Z_2 = {{x,y},{x,y+1},{x+1,y+1},{x+1,y+2}};
-        Vector2 B_l{{x,y},{x+1,y},{x+1,y+1},{x+1,y+2}};
-    }
+float x = 5;
+float y = 5;
+class Moids{
+    public:
+        
+        deque<Vector2> Long={Vector2{x,y},Vector2{x,y},Vector2{x,y},Vector2{x,y}};
+        deque<Vector2> Z_1 = {Vector2{x,y},Vector2{x+1,y},Vector2{x+1,y-1},Vector2{x+1,y-2}};
+        deque<Vector2> Z_2 = {Vector2{x,y},Vector2{x,y+1},Vector2{x+1,y+1},Vector2{x+1,y+2}};
+        deque<Vector2> B_l={Vector2{x,y},Vector2{x+1,y},Vector2{x+1,y+1},Vector2{x+1,y+2}};
+        deque<Vector2> B_r={Vector2{x,y},Vector2{x,y+1},Vector2{x,y+2},Vector2{x+1,y}};
+        deque<Vector2> Iso={Vector2{x,y},Vector2{x,y+1},Vector2{x+1,y},Vector2{x+1,y+1}};
+        deque<Vector2> Square={Vector2{x,y},Vector2{x+1,y},Vector2{x+1,y+1},Vector2{x,y+1}};
+        
+        void Draw(){
+            DrawRectangle(x*cellsize,y*cellsize,cellsize,cellsize,BLACK);
+        }
 };
 
 int main(){
     InitWindow(cellsize*cellcount,cellsize*cellcount,"TETRIS");
+    Moids moid;
     while (!WindowShouldClose()){
         BeginDrawing();
         ClearBackground(violet);
-        
+        moid.Draw();
 
         EndDrawing();
     }
