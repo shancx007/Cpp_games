@@ -91,7 +91,7 @@ int main(){
        if(!gameOver){ 
         head.Draw();
         
-        if(willdo(0.3)){
+        if(willdo(0.1)){
             head.DirectionR();
         }
         if(IsKeyPressed(KEY_UP)){
